@@ -61,11 +61,11 @@ javac -cp "lib/*" -d out src/model/Pessoa.java src/service/PessoaService.java sr
 
 ### 3. Rode os testes:
 ```bash
-java -cp "lib/*;out" org.junit.runner.JUnitCore test.PessoaServiceTest
+javac -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02" src/test/ProdutoServiceTest.java
+java -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02;src/test" org.junit.runner.JUnitCore test.ProdutoServiceTest
 ```
 
 > Obs.: no Linux/Mac, troque `;` por `:` no classpath. 
-> Lembrando que: A utilização do IntelliJ Ultimate pode facilitar esse processo, não precisando assim, construir a pasta lib e inserir os arquivos .jar manualmente.
 
 ---
 
