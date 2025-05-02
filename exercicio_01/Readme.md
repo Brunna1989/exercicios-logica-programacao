@@ -18,7 +18,6 @@ VerificadorIdade/
 ├── test/
 │   └── PessoaServiceTest.java       // Testes unitários com JUnit
 ├── lib/                               // Diretório para armazenar os JARs do JUnit (caso necessário)
-
 ```
 
 ---
@@ -64,8 +63,30 @@ javac -cp "lib/*" -d out src/model/Pessoa.java src/service/PessoaService.java sr
 java -cp "lib/*;out" org.junit.runner.JUnitCore test.PessoaServiceTest
 ```
 
-> Obs.: no Linux/Mac, troque `;` por `:` no classpath. 
+> Obs.: no Linux/Mac, troque `;` por `:` no classpath.
 > Lembrando que: A utilização do IntelliJ Ultimate pode facilitar esse processo, não precisando assim, construir a pasta lib e inserir os arquivos .jar manualmente.
+
+---
+
+## 📊 Como Gerar Relatório de Coverage (JaCoCo)
+
+Você pode utilizar o **JaCoCo** para gerar relatórios de cobertura de testes com os seguintes passos:
+
+### 1. Execute os testes com o agente do JaCoCo:
+```bash
+java -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec -cp "lib/*;out" org.junit.runner.JUnitCore test.PessoaServiceTest
+```
+
+### 2. Gere o relatório HTML com `jacococli.jar`:
+```bash
+java -jar lib/jacococli.jar report jacoco.exec \
+  --classfiles out \
+  --sourcefiles src \
+  --html coverage-report
+```
+
+### 3. Acesse o relatório:
+Abra o arquivo `coverage-report/index.html` em seu navegador para visualizar os resultados.
 
 ---
 
