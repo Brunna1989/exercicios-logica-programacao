@@ -10,50 +10,72 @@ O código foi dividido em três camadas principais, separando responsabilidades 
 
 ```
 VerificadorIdade/
-├── Main.java                           // Ponto de entrada da aplicação
+├── Main.java                           // Ponto de entrada da aplicação (opcional com testes)
 ├── model/
 │   └── Pessoa.java                    // Classe que representa a entidade Pessoa
 ├── service/
 │   └── PessoaService.java            // Lógica de negócio para verificar a idade
+├── test/
+│   └── PessoaServiceTest.java       // Testes unitários com JUnit
+├── lib/                               // Diretório para armazenar os JARs do JUnit (caso necessário)
+
 ```
 
 ---
 
 ## 📋 Como Funciona
 
-1. O usuário digita o nome e a idade de uma pessoa no terminal.
-2. O sistema cria um objeto `Pessoa` com esses dados.
-3. A classe `PessoaService` contém a lógica que verifica se a idade é maior ou igual a 18.
-4. O resultado é exibido no console informando se a pessoa é maior ou menor de idade.
+1. O usuário pode digitar o nome e a idade no terminal **(opcional com Main.java)**, ou os testes já executam os cenários automaticamente.
+2. A classe `PessoaService` contém a lógica para verificar se a idade é maior ou igual a 18.
+3. A propriedade `isMaiorDeIdade` da entidade é atualizada de acordo com o resultado.
+4. No caso dos testes, os dados são simulados e o resultado da verificação é exibido no console com `System.out.println`.
+
+---
+
+## 🧪 Testes Unitários com JUnit
+
+Este projeto também contém testes automatizados com **JUnit 4**, localizados no pacote `test`. Eles validam os comportamentos esperados do sistema, e também imprimem no console o resultado da verificação de maioridade.
+
+### ✅ O que os testes fazem:
+- Criam instâncias da classe `Pessoa` com idades diferentes.
+- Chamam o método `isMaiorDeIdade()` da `PessoaService`.
+- Verificam se o resultado está correto com `assertTrue()` ou `assertFalse()`.
+- Exibem no console a frase: `"Nome tem X anos e é maior/menor de idade."`
+
+---
+
+## ▶️ Como Executar os Testes
+
+### 1. Certifique-se de ter os arquivos JAR do JUnit e Hamcrest no diretório `lib/`
+
+Você pode baixar os arquivos aqui:
+- [junit-4.13.2.jar](https://search.maven.org/artifact/junit/junit/4.13.2/jar)
+- [hamcrest-core-1.3.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
+
+Coloque ambos os arquivos na pasta `lib`.
+
+### 2. Compile os arquivos:
+```bash
+javac -cp "lib/*" -d out src/model/Pessoa.java src/service/PessoaService.java src/test/PessoaServiceTest.java
+```
+
+### 3. Rode os testes:
+```bash
+java -cp "lib/*;out" org.junit.runner.JUnitCore test.PessoaServiceTest
+```
+
+> Obs.: no Linux/Mac, troque `;` por `:` no classpath. 
+> Lembrando que: A utilização do IntelliJ Ultimate pode facilitar esse processo, não precisando assim, construir a pasta lib e inserir os arquivos .jar manualmente.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Java SE (puro)** — Sem uso de bibliotecas ou frameworks externos.
-- **Orientação a Objetos (OOP)** — Uso de classes, encapsulamento e responsabilidades bem definidas.
-- **Estrutura modular** — Separação entre entrada de dados, modelo de dados e regras de negócio.
-
----
-
-## 🚀 Como Executar
-
-### 1. Compile os arquivos:
-```bash
-javac Main.java model/Pessoa.java service/PessoaService.java
-```
-
-### 2. Execute o programa:
-```bash
-java Main
-```
-
----
-
-## 📌 Observações
-
-- Este projeto foi desenvolvido com fins educacionais, para demonstrar como aplicar boas práticas mesmo em projetos pequenos.
-- Ele pode ser expandido facilmente para aceitar entradas por arquivos, interface gráfica (JavaFX ou Swing), ou conectá-lo a um banco de dados futuramente.
+- **Java SE (puro)** — Sem frameworks.
+- **JUnit 4** — Para testes automatizados.
+- **hamcrest-core-1.3.jar**  - Biblioteca complementar do Junit para realização de testes.
+- **Orientação a Objetos (OOP)** — Com separação de camadas: modelo, serviço e teste.
+- **Execução via console** — Simples e direto, ideal para aprendizado.
 
 ---
 
