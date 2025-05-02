@@ -19,17 +19,21 @@ A aplicação segue a seguinte tabela de descontos:
 
 ## 🧱 Estrutura do Projeto
 
-O projeto foi desenvolvido com **boas práticas de organização e código limpo**, utilizando pacotes separados para cada responsabilidade:
+O projeto está organizado com pacotes para separar responsabilidades, seguindo boas práticas de desenvolvimento:
 
 ```
-ProdutoDesconto/
-├── Main.java                          // Ponto de entrada
-├── model/
-│   └── Produto.java                  // Entidade Produto
-├── service/
-│   └── ProdutoService.java          // Regra de negócio
-├── util/
-│   └── DescontoUtil.java            // Utilitário de cálculo de descontos
+exercicio_02/
+├── src/
+│   ├── app/
+│   │   └── Main.java                  // Ponto de entrada da aplicação
+│   ├── model/
+│   │   └── Produto.java               // Classe que representa um produto
+│   ├── service/
+│   │   └── ProdutoService.java        // Contém as regras de negócio
+│   └── test/
+│       └── ProdutoServiceTest.java    // Testes unitários (JUnit)
+├── lib/                               // Diretório para armazenar os JARs do JUnit (caso necessário)
+
 ```
 
 ---
@@ -37,47 +41,62 @@ ProdutoDesconto/
 ## ⚙️ Como Funciona
 
 1. O usuário informa:
-    - Nome do produto
-    - Preço unitário
-    - Quantidade comprada
-2. O sistema calcula o valor total com desconto aplicado conforme a quantidade.
-3. O nome do produto e o valor final a pagar são exibidos no console.
+   - Nome do produto
+   - Preço unitário
+   - Quantidade comprada
+2. O sistema calcula:
+   - Valor total sem desconto
+   - Percentual de desconto conforme a quantidade
+   - Valor final com desconto
+3. Os dados são exibidos no console.
 
 ---
 
 ## 💡 Tecnologias Utilizadas
 
 - **Java SE (Java Puro)**
+- **JUnit 4 para testes**
+- **hamcrest-core-1.3.jar**  - Biblioteca complementar do Junit para realização de testes.
 - **Programação Orientada a Objetos**
-- **Clean Code (código legível, modular e reutilizável)**
+- **Clean Code (modularização, responsabilidade única)**
 
 ---
 
 ## ▶️ Como Executar o Projeto
 
-1. Compile todos os arquivos Java:
+1. Compile os arquivos Java (a partir da raiz do projeto):
 
 ```bash
-javac Main.java model/Produto.java service/ProdutoService.java util/DescontoUtil.java
+javac -d out/production/exercicio_02 src/model/*.java src/service/*.java src/app/Main.java
 ```
 
 2. Execute o programa:
 
 ```bash
-java Main
+java -cp out/production/exercicio_02 app.Main
+```
+
+---
+
+## 🧪 Como Rodar os Testes
+
+Certifique-se de ter o JUnit no classpath. Exemplo de execução via terminal (com JUnit 4.13.1 e Hamcrest 1.3):
+
+```bash
+javac -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02" src/test/ProdutoServiceTest.java
+java -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02;src/test" org.junit.runner.JUnitCore test.ProdutoServiceTest
 ```
 
 ---
 
 ## 📌 Observações
 
-- Nenhum framework externo foi utilizado.
-- O código está pronto para ser estendido com testes unitários ou interface gráfica (como Swing ou JavaFX), se desejado.
-- O projeto está estruturado para facilitar manutenção e testes.
+- Nenhum framework externo foi utilizado além do JUnit para testes.
+- A lógica de negócio está separada para facilitar manutenção e testes.
+- Pode ser estendido facilmente para interface gráfica (Swing, JavaFX).
 
 ---
 
 ## 👨‍💻 Autor
 
-Projeto desenvolvido para fins didáticos e práticos com foco em Java puro, arquitetura limpa e organização modular.
-
+Projeto desenvolvido com fins didáticos, utilizando Java puro e boas práticas de arquitetura e organização modular.

@@ -1,3 +1,5 @@
+package app;
+
 import model.Produto;
 import service.ProdutoService;
 
@@ -19,6 +21,7 @@ public class Main {
 
         Produto produto = new Produto(nome, preco, quantidade);
 
+        produtoService.calcularValores(produto);  // ESSENCIAL
         produtoService.imprimirResumo(produto);
 
         scanner.close();

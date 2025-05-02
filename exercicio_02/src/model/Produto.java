@@ -4,6 +4,9 @@ public class Produto {
     private String nome;
     private double precoUnitario;
     private int quantidade;
+    private double percentualDesconto;
+    private double valorTotalSemDesconto;
+    private double valorFinalComDesconto;
 
     public Produto(String nome, double precoUnitario, int quantidade) {
         this.nome = nome;
@@ -23,7 +26,27 @@ public class Produto {
         return quantidade;
     }
 
+    public double getPercentualDesconto() {
+        return percentualDesconto;
+    }
+
+    public void setPercentualDesconto(double percentualDesconto) {
+        this.percentualDesconto = percentualDesconto;
+    }
+
     public double getValorTotalSemDesconto() {
-        return precoUnitario * quantidade;
+        return valorTotalSemDesconto;
+    }
+
+    public void setValorTotalSemDesconto(double valorTotalSemDesconto) {
+        this.valorTotalSemDesconto = valorTotalSemDesconto;
+    }
+
+    public double getValorFinalComDesconto() {
+        return valorFinalComDesconto;
+    }
+
+    public void setValorFinalComDesconto(double valorFinalComDesconto) {
+        this.valorFinalComDesconto = valorFinalComDesconto;
     }
 }
