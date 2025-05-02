@@ -21,7 +21,7 @@ public class Main {
 
         Produto produto = new Produto(nome, preco, quantidade);
 
-        produtoService.calcularValores(produto);  // ESSENCIAL
+        produtoService.calcularValores(produto);
         produtoService.imprimirResumo(produto);
 
         scanner.close();

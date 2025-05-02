@@ -33,7 +33,6 @@ exercicio_02/
 │   └── test/
 │       └── ProdutoServiceTest.java    // Testes unitários (JUnit)
 ├── lib/                               // Diretório para armazenar os JARs do JUnit (caso necessário)
-
 ```
 
 ---
@@ -85,6 +84,33 @@ Certifique-se de ter o JUnit no classpath. Exemplo de execução via terminal (c
 ```bash
 javac -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02" src/test/ProdutoServiceTest.java
 java -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02;src/test" org.junit.runner.JUnitCore test.ProdutoServiceTest
+```
+
+---
+
+## 📈 Como Gerar o Relatório de Coverage (JaCoCo)
+
+Para gerar o relatório de cobertura de testes com **JaCoCo**, siga os passos abaixo:
+
+1. Execute os testes com o agente do JaCoCo:
+
+```bash
+java -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec -cp "lib/junit-4.13.1.jar;lib/hamcrest-core-1.3.jar;out/production/exercicio_02;src/test" org.junit.runner.JUnitCore test.ProdutoServiceTest
+```
+
+2. Gere o relatório (formato HTML) com o `jacococli.jar`:
+
+```bash
+java -jar lib/jacococli.jar report jacoco.exec \
+  --classfiles out/production/exercicio_02 \
+  --sourcefiles src \
+  --html coverage-report
+```
+
+3. Abra o relatório gerado acessando o arquivo:
+
+```
+coverage-report/index.html
 ```
 
 ---
