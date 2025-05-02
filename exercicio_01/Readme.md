@@ -25,7 +25,7 @@ VerificadorIdade/
 
 ## 📋 Como Funciona
 
-1. O usuário pode digitar o nome e a idade no terminal **(opcional com Main.java)**, ou os testes já executam os cenários automaticamente.
+1. Ao executar o projeto, os testes já executam os cenários automaticamente.
 2. A classe `PessoaService` contém a lógica para verificar se a idade é maior ou igual a 18.
 3. A propriedade `isMaiorDeIdade` da entidade é atualizada de acordo com o resultado.
 4. No caso dos testes, os dados são simulados e o resultado da verificação é exibido no console com `System.out.println`.
