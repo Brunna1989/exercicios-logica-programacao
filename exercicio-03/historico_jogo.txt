@@ -1,0 +1,15 @@
+Jogador: PEDRA | Computador: PEDRA => Empate!
+Jogador: PAPEL | Computador: TESOURA => Você perdeu!
+Jogador: TESOURA | Computador: PAPEL => Você venceu!
+Jogador: TESOURA | Computador: PEDRA => Você perdeu!
+Jogador: PAPEL | Computador: TESOURA => Você perdeu!
+Jogador: PEDRA | Computador: PEDRA => Empate!
+Jogador: PEDRA | Computador: PAPEL => Você perdeu!
+Jogador: PEDRA | Computador: PEDRA => Empate!
+Jogador: PEDRA | Computador: TESOURA => Você venceu!
+Jogador: PEDRA | Computador: PEDRA => Empate!
+Jogador: TESOURA | Computador: PAPEL => Você venceu!
+Jogador: PAPEL | Computador: TESOURA => Você perdeu!
+Jogador: PEDRA | Computador: PAPEL => Você perdeu!
+Jogador: PAPEL | Computador: TESOURA => Você perdeu!
+Jogador: TESOURA | Computador: PAPEL => Você venceu!
