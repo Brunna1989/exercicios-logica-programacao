@@ -19,36 +19,24 @@ public class PessoaServiceTest {
     @Test
     public void testPessoaMaiorDeIdade() {
         Pessoa pessoa = new Pessoa("Felipe", 20);
-        boolean resultado = service.isMaiorDeIdade(pessoa);
-
-        assertTrue(resultado);
         assertTrue(pessoa.isMaiorDeIdade());
 
-        System.out.println(pessoa.getNome() + " tem " + pessoa.getIdade() + " anos e é " +
-                (resultado ? "maior" : "menor") + " de idade.");
+        service.verificarMaioridade(pessoa);
     }
 
     @Test
     public void testPessoaMenorDeIdade() {
         Pessoa pessoa = new Pessoa("Ana Clara", 17);
-        boolean resultado = service.isMaiorDeIdade(pessoa);
-
-        assertFalse(resultado);
         assertFalse(pessoa.isMaiorDeIdade());
 
-        System.out.println(pessoa.getNome() + " tem " + pessoa.getIdade() + " anos e é " +
-                (resultado ? "maior" : "menor") + " de idade.");
+        service.verificarMaioridade(pessoa);
     }
 
     @Test
     public void testPessoaCom18Anos() {
         Pessoa pessoa = new Pessoa("Brunna", 18);
-        boolean resultado = service.isMaiorDeIdade(pessoa);
-
-        assertTrue(resultado);
         assertTrue(pessoa.isMaiorDeIdade());
 
-        System.out.println(pessoa.getNome() + " tem " + pessoa.getIdade() + " anos e é " +
-                (resultado ? "maior" : "menor") + " de idade.");
+        service.verificarMaioridade(pessoa);
     }
 }

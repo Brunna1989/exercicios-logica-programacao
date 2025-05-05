@@ -8,6 +8,7 @@ public class Pessoa {
     public Pessoa(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
+        this.isMaiorDeIdade = this.idade >= 18;
     }
 
     public int getIdade() {
@@ -20,9 +21,5 @@ public class Pessoa {
 
     public boolean isMaiorDeIdade() {
         return isMaiorDeIdade;
-    }
-
-    public void setMaiorDeIdade(boolean isMaiorDeIdade) {
-        this.isMaiorDeIdade = isMaiorDeIdade;
     }
 }
